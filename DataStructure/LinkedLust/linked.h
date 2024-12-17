@@ -7,7 +7,7 @@ class LinkedList
 private:
     Node *head;
     Node *tail;
-    int counter;
+    int index=-1;
 
 public:
     LinkedList();
@@ -22,7 +22,7 @@ public:
 
 LinkedList::LinkedList()
 {
-    counter = 0;
+    
     head = NULL;
     tail = NULL;
 }
@@ -32,13 +32,12 @@ LinkedList::~LinkedList()
 void LinkedList::add(int data)
 {
     Node *newNode = new Node(data);
-    counter++;
-    newNode->index++;
+    index++;
+    newNode->index=index;
     if (head == NULL)
     {
         head = newNode;
         tail = newNode;
-        newNode->index = 0;
     }
     else if (head == tail)
     {
@@ -55,7 +54,6 @@ void LinkedList::add(int data)
         tail = newNode;
         
     }
-    cout<<newNode->index;
 }
 void LinkedList::printLinkedList()
 {
