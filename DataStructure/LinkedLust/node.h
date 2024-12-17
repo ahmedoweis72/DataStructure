@@ -22,6 +22,7 @@ Node::Node(int data)
     this->data=data;
     next=NULL;
     prev=NULL;
+    
 }
 
 Node::~Node()
