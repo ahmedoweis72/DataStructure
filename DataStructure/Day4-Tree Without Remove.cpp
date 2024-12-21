@@ -156,26 +156,26 @@ class Tree{
     }
     Node *remove(Node *r, int key)
     {
-        if (r == NULL) // Empty Tree
+        if (r == NULL) 
             return NULL;
-        if (key < r->data) // Item exists in left sub tree
+        if (key < r->data) 
             r->Left = remove(r->Left, key);
-        else if (key > r->data) // item exists in Right sub tree
+        else if (key > r->data) 
             r->Right = remove(r->Right, key);
         else
         {
-            if (r->Left == NULL && r->Right == NULL) // leaf node
+            if (r->Left == NULL && r->Right == NULL) 
                 r = NULL;
-            else if (r->Left != NULL && r->Right == NULL) // one child on the Left
+            else if (r->Left != NULL && r->Right == NULL) 
             {
                 r->data = r->Left->data;
-                remove (r->Left,key);
+                delete r->Left;
                 r->Left = NULL;
             }
-            else if (r->Left == NULL && r->Right != NULL) // one child on the Right
+            else if (r->Left == NULL && r->Right != NULL) 
             {
                 r->data = r->Right->data;
-                remove (r->Right,key);
+                delete r->Right;
                 r->Right = NULL;
             }
             else
